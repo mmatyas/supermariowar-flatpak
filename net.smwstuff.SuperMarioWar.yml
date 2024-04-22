@@ -1,0 +1,53 @@
+app-id: net.smwstuff.SuperMarioWar
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+
+
+command: smw-runner.sh
+finish-args:
+  - --device=all
+  - --filesystem=host:ro
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --socket=wayland
+
+
+modules:
+  - shared-modules/SDL2/SDL2-with-libdecor.json
+
+  - name: supermariowar
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/mmatyas/supermariowar.git
+        branch: master
+      - type: file
+        path: net.smwstuff.SuperMarioWar.metainfo.xml
+      - type: file
+        path: smw-runner.sh
+    cleanup:
+      - /include
+      - /share/doc/
+    post-install:
+      # Install the extra files
+      - install -D smw-runner.sh /app/bin/smw-runner.sh
+      - install -D -m 644 net.smwstuff.SuperMarioWar.metainfo.xml /app/share/metainfo/net.smwstuff.SuperMarioWar.metainfo.xml
+      # Rename the desktop files
+      - mv /app/share/applications/supermariowar.desktop             /app/share/applications/net.smwstuff.SuperMarioWar.desktop
+      - mv /app/share/applications/supermariowar-leveleditor.desktop /app/share/applications/net.smwstuff.SuperMarioWar.leveleditor.desktop
+      - mv /app/share/applications/supermariowar-worldeditor.desktop /app/share/applications/net.smwstuff.SuperMarioWar.worldeditor.desktop
+      # Rename the icons
+      - mv /app/share/icons/hicolor/32x32/apps/smw.png           /app/share/icons/hicolor/32x32/apps/net.smwstuff.SuperMarioWar.png
+      - mv /app/share/icons/hicolor/32x32/apps/smw-leveledit.png /app/share/icons/hicolor/32x32/apps/net.smwstuff.SuperMarioWar.leveleditor.png
+      - mv /app/share/icons/hicolor/32x32/apps/smw-worldedit.png /app/share/icons/hicolor/32x32/apps/net.smwstuff.SuperMarioWar.worldeditor.png
+      # Update the icon paths
+      - desktop-file-edit --set-key=Icon --set-value='net.smwstuff.SuperMarioWar'             /app/share/applications/net.smwstuff.SuperMarioWar.desktop
+      - desktop-file-edit --set-key=Icon --set-value='net.smwstuff.SuperMarioWar.leveleditor' /app/share/applications/net.smwstuff.SuperMarioWar.leveleditor.desktop
+      - desktop-file-edit --set-key=Icon --set-value='net.smwstuff.SuperMarioWar.worldeditor' /app/share/applications/net.smwstuff.SuperMarioWar.worldeditor.desktop
+      # Update the executable paths
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh game'      /app/share/applications/net.smwstuff.SuperMarioWar.desktop
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh leveledit' /app/share/applications/net.smwstuff.SuperMarioWar.leveleditor.desktop
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh worldedit' /app/share/applications/net.smwstuff.SuperMarioWar.worldeditor.desktop

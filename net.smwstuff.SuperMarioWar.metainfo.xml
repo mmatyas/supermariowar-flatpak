@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>net.smwstuff.SuperMarioWar</id>
+
+  <launchable type="desktop-id">net.smwstuff.SuperMarioWar.desktop</launchable>
+  <provides>
+    <binary>smw</binary>
+  </provides>
+
+  <name>Super Mario War</name>
+  <summary>A fan-made multiplayer Super Mario Bros. style deathmatch game</summary>
+  <description>
+    <p>Super Mario War is a fan-made multiplayer Super Mario Bros. style deathmatch game in which players try to beat one another in a variety of gameplay modes. You can play on teams, design your own levels, design your own worlds, and much more!</p>
+    <p>The game uses artwork and sounds from Nintendo games. We hope that this noncommercial fangame qualifies as fair use work; we wanted to create this game to show how much we adore Nintendo&apos;s characters and games.</p>
+    <p>Features:</p>
+    <ul>
+        <li>Up to four players deathmatch fun</li>
+        <li>A whole bunch of game modes (featuring GetTheChicken, Domination, CTF, ...)</li>
+        <li>Comes with the leveleditor - you can create your own maps...</li>
+        <li>... and a lot of people did so. There are currently over 1000 maps</li>
+        <li>More fun than poking a monkey with a stick</li>
+        <li>The whole source code of the game is available, for free</li>
+        <li>Fully portable and available for Windows, Linux, Mac, and more</li>
+        <li>CPU Players</li>
+        <li>Will make you happy and gives you a fuzzy feeling</li>
+    </ul>
+  </description>
+
+  <categories>
+      <category>Game</category>
+      <category>ActionGame</category>
+  </categories>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>gamepad</control>
+    <internet>offline-only</internet>
+  </supports>
+
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">mild</content_attribute>
+    <content_attribute id="violence-fantasy">mild</content_attribute>
+    <content_attribute id="language-humor">mild</content_attribute>
+    <content_attribute id="social-chat">mild</content_attribute>
+  </content_rating>
+
+  <url type="homepage">http://smwstuff.net/</url>
+  <url type="bugtracker">https://github.com/mmatyas/supermariowar/issues</url>
+  <url type="vcs-browser">https://github.com/mmatyas/supermariowar</url>
+  <developer_name>Mátyás Mustoha</developer_name>
+  <update_contact>matyas.mustoha_AT_gmail.com</update_contact>
+
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+
+  <releases>
+    <release version="2.0" type="development" date="2009-04-09" />
+    <release version="1.8-beta2" date="2009-04-09" />
+  </releases>
+</component>
