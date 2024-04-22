@@ -20,6 +20,11 @@ jobs:
         with:
           submodules: true
 
+      - name: Prechecks
+        run: |
+          flatpak-builder --version
+          appstreamcli --version
+
       - name: Build
         uses: andyholmes/flatter@main
         with:
