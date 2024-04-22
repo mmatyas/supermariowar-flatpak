@@ -25,8 +25,17 @@ jobs:
           flatpak-builder --version
           appstreamcli --version
 
+      - name: Setup GPG
+        id: gpg
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
       - name: Build
         uses: andyholmes/flatter@main
         with:
           files: net.smwstuff.SuperMarioWar.yml
+          gpg-sign: ${{ steps.gpg.outputs.fingerprint }}
           upload-bundles: true
+          upload-pages-artifact: true
