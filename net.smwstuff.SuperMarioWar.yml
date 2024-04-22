@@ -6,13 +6,17 @@ sdk: org.freedesktop.Sdk
 
 command: smw-runner.sh
 finish-args:
-  - --device=all
-  - --filesystem=host:ro
+  # X11 access
   - --share=ipc
-  - --share=network
   - --socket=fallback-x11
-  - --socket=pulseaudio
+  # Wayland access
   - --socket=wayland
+  # Audio access
+  - --socket=pulseaudio
+  # Gamepad access
+  - --device=all
+  # Network access for multiplayer
+  - --share=network
 
 
 modules:
