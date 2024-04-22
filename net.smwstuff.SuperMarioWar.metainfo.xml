@@ -47,7 +47,9 @@
   <url type="homepage">http://smwstuff.net/</url>
   <url type="bugtracker">https://github.com/mmatyas/supermariowar/issues</url>
   <url type="vcs-browser">https://github.com/mmatyas/supermariowar</url>
-  <developer_name>Mátyás Mustoha</developer_name>
+  <developer id="net.smwstuff">
+    <name>Mátyás Mustoha</name>
+  </developer>
   <update_contact>matyas.mustoha_AT_gmail.com</update_contact>
 
   <metadata_license>CC-BY-SA-4.0</metadata_license>
