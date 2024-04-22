@@ -3,9 +3,6 @@
   <id>net.smwstuff.SuperMarioWar</id>
 
   <launchable type="desktop-id">net.smwstuff.SuperMarioWar.desktop</launchable>
-  <provides>
-    <binary>smw</binary>
-  </provides>
 
   <name>Super Mario War</name>
   <summary>A fan-made multiplayer Super Mario Bros. style deathmatch game</summary>
@@ -30,6 +27,7 @@
       <category>Game</category>
       <category>ActionGame</category>
   </categories>
+
   <supports>
     <control>pointing</control>
     <control>keyboard</control>
