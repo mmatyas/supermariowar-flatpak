@@ -41,6 +41,10 @@ jobs:
           upload-pages-artifact: true
           upload-pages-includes: |
             SuperMarioWar.flatpakref
+            index.html
+            icons/32x32_smw.png
+            icons/64x64_smw.png
+            icons/256x256_smw.png
 
   deploy:
     name: Deploy

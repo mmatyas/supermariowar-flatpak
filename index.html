@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+	<title>Super Mario War Flatpak</title>
+	<link rel='icon' type='image/png' href='32x32_smw.png'sizes='32x32'>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+		}
+		html {
+			color: #111;
+			background: #88f;
+			font-family: sans-serif;
+		}
+		main {
+			width: 600px;
+			background: #f8f8f8f0;
+			margin: 2em auto;
+			padding: 1.5em;
+			border-radius: 12px;
+			text-align: center;
+		}
+		img.hero {
+			width: 128px;
+			display: inline-block;
+		}
+		h2 {
+			margin: .75em 0;
+		}
+		p {
+			margin: 1.5em 0;
+		}
+		pre {
+			color: #fff;
+			background: #555;
+			padding: 1.25em 1em;
+			text-align: left;
+			border-radius: 4px;
+			overflow-x: auto;
+		}
+		a.button {
+			display: inline-block;
+			margin-top: 1.5em;
+			padding: 0.5em 1em;
+			border: 2px solid #111;
+			border-radius: 8px;
+			font-size: 1.2;
+			font-weight: bold;
+			color: inherit;
+			text-decoration: none;
+			transition: ease .15s;
+		}
+		a.button:hover {
+			color: #f8f8f8;
+			background-color: #111;
+		}
+	</style>
+</head>
+<body>
+
+<main>
+	<img class='hero' src='256x256_smw.png'>
+	<h2>Super Mario War Flatpak repo</h2>
+	<p>A fan-made multiplayer Super Mario Bros. style deathmatch game</p>
+	<pre>
+flatpak remote-add --if-not-exists supermariowar-flatpak https://mmatyas.github.io/supermariowar-flatpak/index.flatpakrepo
+flatpak install net.smwstuff.SuperMarioWar
+</pre>
+	<a class='button' href='SuperMarioWar.flatpakref'>Download</a>
+</main>
+
+</body>
+</html>
