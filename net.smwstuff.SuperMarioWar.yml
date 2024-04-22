@@ -32,6 +32,13 @@ modules:
         path: net.smwstuff.SuperMarioWar.metainfo.xml
       - type: file
         path: smw-runner.sh
+
+      - type: file
+        path: icons/64x64_smw.png
+      - type: file
+        path: icons/64x64_smw-leveledit.png
+      - type: file
+        path: icons/64x64_smw-worldedit.png
     cleanup:
       - /include
       - /share/doc/
@@ -55,3 +62,7 @@ modules:
       - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh game'      /app/share/applications/net.smwstuff.SuperMarioWar.desktop
       - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh leveledit' /app/share/applications/net.smwstuff.SuperMarioWar.leveleditor.desktop
       - desktop-file-edit --set-key=Exec --set-value='/app/bin/smw-runner.sh worldedit' /app/share/applications/net.smwstuff.SuperMarioWar.worldeditor.desktop
+      # Add some more icons
+      - install -D -m 644 64x64_smw.png           /app/share/icons/hicolor/64x64/apps/net.smwstuff.SuperMarioWar.png
+      - install -D -m 644 64x64_smw-leveledit.png /app/share/icons/hicolor/64x64/apps/net.smwstuff.SuperMarioWar.leveleditor.png
+      - install -D -m 644 64x64_smw-worldedit.png /app/share/icons/hicolor/64x64/apps/net.smwstuff.SuperMarioWar.worldeditor.png
