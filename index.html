@@ -17,11 +17,13 @@
 		}
 		main {
 			width: 600px;
+			max-width: 100%;
 			background: #f8f8f8f0;
 			margin: 2em auto;
 			padding: 1.5em;
 			border-radius: 12px;
 			text-align: center;
+			box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
 		}
 		img.hero {
 			width: 128px;
@@ -33,13 +35,15 @@
 		p {
 			margin: 1.5em 0;
 		}
-		pre {
+		code {
 			color: #fff;
 			background: #555;
 			padding: 1.25em 1em;
-			text-align: left;
 			border-radius: 4px;
-			overflow-x: auto;
+			text-align: left;
+			white-space: nowrap;
+			overflow-x: scroll;
+			display: block;
 		}
 		a.button {
 			display: inline-block;
@@ -62,13 +66,13 @@
 <body>
 
 <main>
-	<img class='hero' src='256x256_smw.png'>
+	<img class='hero' src='256x256_smw.png' alt='Super Mario War logo'>
 	<h2>Super Mario War Flatpak repo</h2>
-	<p>A fan-made multiplayer Super Mario Bros. style deathmatch game</p>
-	<pre>
-flatpak remote-add --if-not-exists supermariowar-flatpak https://mmatyas.github.io/supermariowar-flatpak/index.flatpakrepo
-flatpak install net.smwstuff.SuperMarioWar
-</pre>
+	<p>Nightly Flatpak repository for Super Mario War, a fan-made multiplayer Super Mario Bros. style deathmatch game.</p>
+	<code>
+		flatpak remote-add --if-not-exists supermariowar-flatpak https://mmatyas.github.io/supermariowar-flatpak/index.flatpakrepo<br>
+		flatpak install net.smwstuff.SuperMarioWar
+	</code>
 	<a class='button' href='SuperMarioWar.flatpakref'>Download</a>
 </main>
 
