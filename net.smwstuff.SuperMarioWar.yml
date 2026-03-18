@@ -1,6 +1,6 @@
 app-id: net.smwstuff.SuperMarioWar
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 
 
@@ -20,10 +20,66 @@ finish-args:
 
 
 modules:
-  - shared-modules/SDL2/SDL2-with-libdecor.json
+  - name: SDL2
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: https://github.com/libsdl-org/SDL.git
+        branch: release-2.32.10
+    config-opts:
+      - -DSDL_STATIC=OFF
+
+  - name: SDL2_image
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: https://github.com/libsdl-org/SDL_image.git
+        branch: release-2.8.8
+    config-opts:
+      - -DSDL2IMAGE_VENDORED=ON
+      - -DSDL2IMAGE_DEPS_SHARED=OFF
+      - -DSDL2IMAGE_ANI=OFF
+      - -DSDL2IMAGE_AVIF=OFF
+      - -DSDL2IMAGE_GIF=OFF
+      - -DSDL2IMAGE_JPG=OFF
+      - -DSDL2IMAGE_JXL=OFF
+      - -DSDL2IMAGE_LBM=OFF
+      - -DSDL2IMAGE_PCX=OFF
+      - -DSDL2IMAGE_PNM=OFF
+      - -DSDL2IMAGE_QOI=OFF
+      - -DSDL2IMAGE_SVG=OFF
+      - -DSDL2IMAGE_TGA=OFF
+      - -DSDL2IMAGE_TIF=OFF
+      - -DSDL2IMAGE_WEBP=OFF
+      - -DSDL2IMAGE_XCF=OFF
+      - -DSDL2IMAGE_XPM=OFF
+      - -DSDL2IMAGE_XV=OFF
+
+  - name: SDL2_mixer
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: https://github.com/libsdl-org/SDL_mixer.git
+        branch: release-2.8.1
+    config-opts:
+      - -DSDL2MIXER_VENDORED=ON
+      - -DSDL2MIXER_DEPS_SHARED=OFF
+      - -DSDL2MIXER_AIFF=OFF
+      - -DSDL2MIXER_VOC=OFF
+      - -DSDL2MIXER_AU=OFF
+      - -DSDL2MIXER_FLAC=OFF
+      - -DSDL2MIXER_GME=OFF
+      - -DSDL2MIXER_MOD=OFF
+      - -DSDL2MIXER_MP3=OFF
+      - -DSDL2MIXER_MIDI=OFF
+      - -DSDL2MIXER_WAVPACK=OFF
 
   - name: enet
     buildsystem: cmake-ninja
+    builddir: true
     sources:
       - type: git
         url: https://github.com/mmatyas/enet.git
@@ -31,6 +87,7 @@ modules:
 
   - name: yaml-cpp
     buildsystem: cmake-ninja
+    builddir: true
     sources:
       - type: git
         url: https://github.com/jbeder/yaml-cpp.git
