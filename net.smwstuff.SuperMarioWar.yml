@@ -88,7 +88,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/mmatyas/enet.git
-        commit: 493c1b826b212a2d442c57b384cfe3101cfff3b7
+        commit: 74d43e850f5abda0e5f565caa5d54f462bc210fd
 
   - name: yaml-cpp
     buildsystem: cmake-ninja
