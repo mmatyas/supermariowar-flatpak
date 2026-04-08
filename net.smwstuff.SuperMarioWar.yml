@@ -20,6 +20,16 @@ finish-args:
 
 
 modules:
+  - name: zlib
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: https://github.com/madler/zlib.git
+        branch: v1.3.2
+    config-opts:
+      - -DZLIB_BUILD_TESTING=OFF
+
   - name: SDL2
     buildsystem: cmake-ninja
     builddir: true
