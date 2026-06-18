@@ -90,14 +90,6 @@ modules:
         url: https://github.com/mmatyas/enet.git
         commit: 74d43e850f5abda0e5f565caa5d54f462bc210fd
 
-  - name: yaml-cpp
-    buildsystem: cmake-ninja
-    builddir: true
-    sources:
-      - type: git
-        url: https://github.com/jbeder/yaml-cpp.git
-        branch: yaml-cpp-0.9.0
-
   - name: toml11
     buildsystem: cmake-ninja
     builddir: true
