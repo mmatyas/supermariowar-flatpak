@@ -49,6 +49,11 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DSDL_STATIC=OFF
+      - -DSDL_TEST_LIBRARY=OFF
+      - -DSDL_CAMERA=OFF
+      - -DSDL_POWER=OFF
+      - -DSDL_SENSOR=OFF
+      - -DSDL_TRAY=OFF
     cleanup:
       - /include
       - /share
@@ -67,6 +72,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DSDLIMAGE_VENDORED=ON
       - -DSDLIMAGE_DEPS_SHARED=OFF
+      - -DSDLIMAGE_TESTS=OFF
+      - -DSDLIMAGE_SAMPLES=OFF
       - -DSDLIMAGE_ANI=OFF
       - -DSDLIMAGE_AVIF=OFF
       - -DSDLIMAGE_GIF=OFF
@@ -104,6 +111,8 @@ modules:
       - -DSDLMIXER_GME=ON
       - -DSDLMIXER_OPUS=OFF
       - -DSDLMIXER_WAVPACK=OFF
+      - -DSDLMIXER_TESTS=OFF
+      - -DSDLMIXER_EXAMPLES=OFF
     cleanup:
       - /include
       - /share
