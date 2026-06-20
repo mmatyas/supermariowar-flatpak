@@ -31,6 +31,12 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DZLIB_BUILD_TESTING=OFF
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   # SDL3_mixer requires SDL 3.4 or later, but the 25.08 SDK has SDL 3.2
   - name: SDL3
@@ -43,6 +49,12 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DSDL_STATIC=OFF
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   - name: SDL3_image
     buildsystem: cmake-ninja
@@ -71,6 +83,12 @@ modules:
       - -DSDLIMAGE_XCF=OFF
       - -DSDLIMAGE_XPM=OFF
       - -DSDLIMAGE_XV=OFF
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   - name: SDL3_mixer
     buildsystem: cmake-ninja
@@ -86,6 +104,12 @@ modules:
       - -DSDLMIXER_GME=ON
       - -DSDLMIXER_OPUS=OFF
       - -DSDLMIXER_WAVPACK=OFF
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   - name: enet
     buildsystem: cmake-ninja
@@ -96,6 +120,12 @@ modules:
         commit: 74d43e850f5abda0e5f565caa5d54f462bc210fd
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   - name: toml11
     buildsystem: cmake-ninja
@@ -107,6 +137,12 @@ modules:
         disable-submodules: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+    cleanup:
+      - /include
+      - /share
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /lib/*.a
 
   - name: supermariowar
     buildsystem: cmake-ninja
@@ -129,7 +165,10 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /include
-      - /share/doc/
+      - /share/doc
+      - /lib/pkgconfig
+      - /lib/cmake
+      - /share/games/smw/gfx/docs
     post-install:
       # Install the extra files
       - install -D smw-runner.sh /app/bin/smw-runner.sh
