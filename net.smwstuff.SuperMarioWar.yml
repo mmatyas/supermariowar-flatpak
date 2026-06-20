@@ -20,6 +20,7 @@ finish-args:
 
 
 modules:
+  # CMake doesn't see the SDK's own zlib
   - name: zlib
     buildsystem: cmake-ninja
     builddir: true
@@ -30,57 +31,57 @@ modules:
     config-opts:
       - -DZLIB_BUILD_TESTING=OFF
 
-  - name: SDL2
+  # SDL3_mixer requires SDL 3.4 or later, but the 25.08 SDK has SDL 3.2
+  - name: SDL3
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: git
         url: https://github.com/libsdl-org/SDL.git
-        branch: release-2.32.10
+        branch: release-3.4.10
     config-opts:
       - -DSDL_STATIC=OFF
 
-  - name: SDL2_image
+  - name: SDL3_image
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: git
         url: https://github.com/libsdl-org/SDL_image.git
-        branch: release-2.8.8
+        branch: release-3.4.4
     config-opts:
-      - -DSDL2IMAGE_VENDORED=ON
-      - -DSDL2IMAGE_DEPS_SHARED=OFF
-      - -DSDL2IMAGE_ANI=OFF
-      - -DSDL2IMAGE_AVIF=OFF
-      - -DSDL2IMAGE_GIF=OFF
-      - -DSDL2IMAGE_JPG=OFF
-      - -DSDL2IMAGE_JXL=OFF
-      - -DSDL2IMAGE_LBM=OFF
-      - -DSDL2IMAGE_PCX=OFF
-      - -DSDL2IMAGE_PNM=OFF
-      - -DSDL2IMAGE_QOI=OFF
-      - -DSDL2IMAGE_SVG=OFF
-      - -DSDL2IMAGE_TGA=OFF
-      - -DSDL2IMAGE_TIF=OFF
-      - -DSDL2IMAGE_WEBP=OFF
-      - -DSDL2IMAGE_XCF=OFF
-      - -DSDL2IMAGE_XPM=OFF
-      - -DSDL2IMAGE_XV=OFF
+      - -DSDLIMAGE_VENDORED=ON
+      - -DSDLIMAGE_DEPS_SHARED=OFF
+      - -DSDLIMAGE_ANI=OFF
+      - -DSDLIMAGE_AVIF=OFF
+      - -DSDLIMAGE_GIF=OFF
+      - -DSDLIMAGE_JPG=OFF
+      - -DSDLIMAGE_JXL=OFF
+      - -DSDLIMAGE_LBM=OFF
+      - -DSDLIMAGE_PCX=OFF
+      - -DSDLIMAGE_PNM=OFF
+      - -DSDLIMAGE_QOI=OFF
+      - -DSDLIMAGE_SVG=OFF
+      - -DSDLIMAGE_TGA=OFF
+      - -DSDLIMAGE_TIF=OFF
+      - -DSDLIMAGE_WEBP=OFF
+      - -DSDLIMAGE_XCF=OFF
+      - -DSDLIMAGE_XPM=OFF
+      - -DSDLIMAGE_XV=OFF
 
-  - name: SDL2_mixer
+  - name: SDL3_mixer
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: git
         url: https://github.com/libsdl-org/SDL_mixer.git
-        branch: release-2.8.1
+        branch: release-3.2.4
     config-opts:
-      - -DSDL2MIXER_VENDORED=ON
-      - -DSDL2MIXER_DEPS_SHARED=OFF
-      - -DSDL2MIXER_GME=ON
-      - -DSDL2MIXER_GME_SHARED=ON
-      - -DSDL2MIXER_OPUS=OFF
-      - -DSDL2MIXER_WAVPACK=OFF
+      - -DSDLMIXER_VENDORED=ON
+      - -DSDLMIXER_DEPS_SHARED=OFF
+      - -DSDLMIXER_GME=ON
+      - -DSDLMIXER_OPUS=OFF
+      - -DSDLMIXER_WAVPACK=OFF
 
   - name: enet
     buildsystem: cmake-ninja
@@ -104,7 +105,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/mmatyas/supermariowar.git
-        branch: master
+        branch: sdl3
       - type: file
         path: net.smwstuff.SuperMarioWar.metainfo.xml
       - type: file
