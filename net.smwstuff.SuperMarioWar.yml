@@ -29,6 +29,7 @@ modules:
         url: https://github.com/madler/zlib.git
         branch: v1.3.2
     config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
       - -DZLIB_BUILD_TESTING=OFF
 
   # SDL3_mixer requires SDL 3.4 or later, but the 25.08 SDK has SDL 3.2
@@ -40,6 +41,7 @@ modules:
         url: https://github.com/libsdl-org/SDL.git
         branch: release-3.4.10
     config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
       - -DSDL_STATIC=OFF
 
   - name: SDL3_image
@@ -50,6 +52,7 @@ modules:
         url: https://github.com/libsdl-org/SDL_image.git
         branch: release-3.4.4
     config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
       - -DSDLIMAGE_VENDORED=ON
       - -DSDLIMAGE_DEPS_SHARED=OFF
       - -DSDLIMAGE_ANI=OFF
@@ -77,6 +80,7 @@ modules:
         url: https://github.com/libsdl-org/SDL_mixer.git
         branch: release-3.2.4
     config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
       - -DSDLMIXER_VENDORED=ON
       - -DSDLMIXER_DEPS_SHARED=OFF
       - -DSDLMIXER_GME=ON
@@ -90,6 +94,8 @@ modules:
       - type: git
         url: https://github.com/mmatyas/enet.git
         commit: 74d43e850f5abda0e5f565caa5d54f462bc210fd
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
 
   - name: toml11
     buildsystem: cmake-ninja
@@ -99,6 +105,8 @@ modules:
         url: https://github.com/ToruNiina/toml11.git
         branch: v4.4.0
         disable-submodules: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
 
   - name: supermariowar
     buildsystem: cmake-ninja
@@ -117,6 +125,8 @@ modules:
         path: icons/64x64_smw-leveledit.png
       - type: file
         path: icons/64x64_smw-worldedit.png
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /include
       - /share/doc/
